@@ -22,6 +22,6 @@ getCurrentScore: that takes no input and returns an int representing the player 
 - Once you finished you can change the url of this repository, push on your own repo and send me the link for analysis.
 
 ## Test
-a test can be found in bowling.php If you think some are missing, you can add yours.
+a test can be found in bowling-test.php If you think some are missing, you can add yours.
 To see if your test has succeed you can launch
 php bowling-test.php
