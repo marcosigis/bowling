@@ -1,12 +1,17 @@
 <?php
+namespace App;
 
 class Bowling {
     
-    public function newThrow ($pinsNbr)
+    private int $score = 0;
+
+    public function newThrow ($pinsNbr) : void
     {
+        $this->score += $pinsNbr;
     }
 
-    public function getCurrentScore ()
+    public function getCurrentScore () : int
     {
+        return $this->score;
     }
 }

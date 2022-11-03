@@ -1,21 +1,32 @@
 <?php 
+include "vendor/autoload.php";
+use App\Bowling;
 
-use APP\Bowling;
-
-function bowling() 
-{
+function bowling() : int
+{   
+    $score=0;
+    $game2=0;
     $game = new Bowling();
-    $gameScores = [2, 4];
+    $game1= rand(0, 10);
+    if ($game1 !== 10){
+        $game2 = rand(0, (10-$game1));
+    }
+    $gameScores = [$game1, $game2];
     foreach ($gameScores as $score) {
         $game->newThrow($score);
     }
     try{
-        if($game->getCurrentScore() === 6){
-            echo "success ! your score is : " . $game->getCurrentScore();
-        }
+        $score = $game->getCurrentScore();
     }catch(Exception $error){
         echo $error->getMessage();
+    }finally{
+        return $score;    
     }
+
 };
 
-bowling();
+$score=0;
+for ($i=0; $i<10; $i++){
+    $score += bowling();
+}
+echo $score;
